@@ -1,7 +1,7 @@
 #!/bin/bash
 
 A="alsa_output.usb-Topping_DX1-00.HiFi__Headphones__sink"
-B="alsa_output.pci-0000_18_00.6.analog-stereo"
+B="alsa_output.usb-Audient_EVO4-00.pro-output-0"
 
 CURRENT=$(pactl get-default-sink)
 
