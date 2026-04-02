@@ -1,0 +1,41 @@
+# SSH Configuration Template
+# Place this in ~/.ssh/config
+
+# --- Global Defaults ---
+Host *
+    # Keep the connection alive
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+
+    # Multiplexing: Reuse a single TCP connection for multiple SSH sessions
+    # Note: Create ~/.ssh/sockets/ directory before enabling
+    # ControlMaster auto
+    # ControlPath ~/.ssh/sockets/%r@%h:%p
+    # ControlPersist 10m
+
+    # Security and convenience
+    ForwardAgent no
+    Compression yes
+    HashKnownHosts yes
+    StrictHostKeyChecking ask
+    VerifyHostKeyDNS yes
+
+# --- Custom Includes ---
+# Useful for managing multiple configurations (e.g., work, personal)
+# Include ~/.ssh/conf.d/*
+
+# --- Examples ---
+
+# Host example-server
+#     HostName 192.168.1.100
+#     User dev
+#     Port 22
+#     IdentityFile ~/.ssh/id_ed25519
+
+# Host github.com
+#     User git
+#     IdentityFile ~/.ssh/id_github
+
+# Host internal-host
+#     HostName 10.0.0.5
+#     ProxyJump example-server
